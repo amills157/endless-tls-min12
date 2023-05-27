@@ -246,7 +246,7 @@ func (srv *endlessServer) ListenAndServeTLS(certFile, keyFile string) (err error
 		addr = ":https"
 	}
 
-	config := &tls.Config{}
+	config := &tls.Config{MinVersion: tls.VersionTLS12}
 	if srv.TLSConfig != nil {
 		*config = *srv.TLSConfig
 	}
